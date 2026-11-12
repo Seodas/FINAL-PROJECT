@@ -1,19 +1,4 @@
-; SQUISHY TYCOON - standalone NASM source for 32-bit Linux / WSL.
-; No include files are needed. This version is NOT a native Windows EXE.
-; Assemble: nasm -f elf32 squishy.asm -o squishy.o
-; Link:     gcc -m32 -no-pie squishy.o -o squishy
-; Run:      ./squishy
-; Ubuntu/WSL prerequisites: sudo apt install nasm gcc-multilib
-;
-; PRESENTATION: start at main, then explain squish, shop and file handling.
-; All game code is assembly. GCC supplies the startup that calls main.
-; Input/output and files use Linux int 0x80 system calls (no C functions).
-; EAX = syscall number/result; EBX/ECX/EDX = first three syscall arguments.
-; Our helpers preserve EBX/ESI/EDI/EBP; EAX/ECX/EDX may change on return.
-; Dots name local branch labels. [name] accesses a variable in memory.
-; dd declares 4-byte data, db bytes; resb reserves uninitialized storage.
-; This 32-bit version caps lifetime earnings at 1 billion whole coins.
-; Its save format is separate from the earlier Windows x64 version.
+; SQUISHY TYCOON 
 
 bits 32
 global main
